@@ -1,0 +1,30 @@
+{
+    "name": "clarence/laravel-default-routes",
+    "description": "Default routes for laravel",
+    "type": "library",
+    "require": {
+        "php": ">=5.5",
+        "laravel/framework": "5.2.*"
+    },
+    "require-dev":{
+        "phpunit/phpunit": "4.*",
+        "mockery/mockery": "^0.9.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Clarence",
+            "email": "clarence-pan@foxmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Clarence\\LaravelDefaultRoutes\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Clarence\\LaravelDefaultRoutes\\": "tests"
+        }
+    }
+}

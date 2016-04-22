@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Clarence\LaravelDefaultRoutes;
-
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
@@ -17,7 +15,5 @@ class DefaultRouteProvider extends ServiceProvider
 
     public function register()
     {
-
     }
-
 }

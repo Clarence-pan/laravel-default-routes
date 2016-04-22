@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Clarence\LaravelDefaultRoutes;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -14,24 +13,27 @@ trait DefaultRoute
     public function runAction(Request $request, $action = null)
     {
         $method = $this->resolveActionInCertainController($request, get_class($this), $action);
+
         return app()->call([$this, substr(strrchr($method, '@'), 1)]);
     }
 
     public function runControllerAction(Request $request, $controller, $action = null)
     {
         $method = $this->resolveControllerAction($request, $controller, $action);
+
         return app()->call($method);
     }
 
     public function runModuleControllerAction(Request $request, $module, $controller, $action = null)
     {
-        return $this->runControllerAction($request, $module . '/' . $controller, $action);
+        return $this->runControllerAction($request, $module.'/'.$controller, $action);
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param string                                    $controller
      * @param string|null                               $action
+     *
      * @return \ReflectionMethod
      */
     protected function resolveControllerAction(Request $request, $controller, $action = null)
@@ -53,11 +55,13 @@ trait DefaultRoute
 
         try {
             // firstly, try foo/bar as FooController@bar
-            $controllerClass = $controllerPrefix . $controller . $controllerSuffix;
+            $controllerClass = $controllerPrefix.$controller.$controllerSuffix;
+
             return $this->resolveActionInCertainController($request, $controllerClass, $action);
         } catch (NotFoundHttpException $e) {
             // then, try foo/bar as Foo\BarController@index
-            $controllerClass = $controllerPrefix . $controller.'\\'.$action. $controllerSuffix;
+            $controllerClass = $controllerPrefix.$controller.'\\'.$action.$controllerSuffix;
+
             return $this->resolveActionInCertainController($request, $controllerClass, $this->defaultAction);
         }
     }
@@ -76,6 +80,7 @@ trait DefaultRoute
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param string                                    $controllerClass
      * @param string|null                               $action
+     *
      * @return \ReflectionMethod
      */
     protected function resolveActionInCertainController(Request $request, $controllerClass, $action)
@@ -94,7 +99,7 @@ trait DefaultRoute
                 throw new MethodNotAllowedHttpException("Action $action is not allowed");
             }
 
-            return $controllerClass . '@' . $classMethod;
+            return $controllerClass.'@'.$classMethod;
         } catch (\ReflectionException $e) {
             throw new NotFoundHttpException("Action $action cannot be found");
         }

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Http\Controllers;
-
 
 use Illuminate\Routing\Controller;
 
@@ -27,7 +25,6 @@ class FooController extends Controller
     {
         return __METHOD__;
     }
-
 
     public function doGetBar()
     {

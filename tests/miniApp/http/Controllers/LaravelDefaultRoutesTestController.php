@@ -1,10 +1,7 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
-
-use Clarence\LaravelDefaultRoutes\DefaultRoute;
 use Illuminate\Routing\Controller;
 
 class LaravelDefaultRoutesTestController extends Controller
@@ -29,7 +26,6 @@ class LaravelDefaultRoutesTestController extends Controller
         return __METHOD__;
     }
 
-
     public function doGetFoo()
     {
         return __METHOD__;
@@ -49,5 +45,4 @@ class LaravelDefaultRoutesTestController extends Controller
     {
         return __METHOD__;
     }
-
 }

@@ -1,11 +1,10 @@
 <?php
 
-
 namespace App\Http\Controllers;
-
 
 use Clarence\LaravelDefaultRoutes\DefaultRoute;
 use Illuminate\Routing\Controller;
+
 class FooBarController extends Controller
 {
     use DefaultRoute;
@@ -29,7 +28,6 @@ class FooBarController extends Controller
     {
         return __METHOD__;
     }
-
 
     public function doGetJoy()
     {

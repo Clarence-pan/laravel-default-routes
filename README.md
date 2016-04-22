@@ -14,6 +14,30 @@ composer require clarence/laravel-default-routes
 
 Then, register the `DefaultRouteProvider`. For example, add `\Clarence\LaravelDefaultRoutes\DefaultRouteProvider::class` to the `providers` section in `config/app.php`.
  
+```php
+
+// config/app.php
+return [
+
+    //...
+    
+    'providers' => [
+        //...
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        
+        Clarence\LaravelDefaultRoutes\DefaultRouteProvider::class,  // add DefaultRouteProvider below the RouteServiceProvider
+        
+        //...
+   
+    ],
+    
+    //...
+
+]; 
+
+
+```
  
 # Routes Maps
 

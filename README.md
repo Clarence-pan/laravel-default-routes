@@ -1,8 +1,8 @@
-# Default Routes For Laravel/Lumen
+# Default Routes For Laravel
 
 ![build status](https://travis-ci.org/Clarence-pan/laravel-default-routes.svg)
 
-With this library, you can easily add "module/controller/action" style routes for Laravel/Lumen.
+With this library, you can easily add "module/controller/action" style routes for Laravel.
 
 # Install
 
